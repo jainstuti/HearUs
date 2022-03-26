@@ -55,9 +55,11 @@ canvas{
 }
 
 .call-app-container {
-    margin-top: 80px;
+    margin: 0px;
     display: flex;
-    height: calc(100vh- 80px);
+    /*height: calc(100vh - 80px);*/
+    padding: 0px;
+    padding-top: 100px;
 }
 
 .id-input {
