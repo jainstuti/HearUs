@@ -1,18 +1,18 @@
 const express=require("express");
 const app=express();
 const http=require('http');
-const { ExpressPeerServer } = require('peer')
+// const { ExpressPeerServer } = require('peer')
 
 const PORT=process.env.PORT || 4000;
 
 
 const server = http.createServer(app)
 
-const peerServer = ExpressPeerServer(server, {
-    path: '/HearUs',
-    debug: true,
-    allow_discovery: true
-})
+// const peerServer = ExpressPeerServer(server, {
+//     path: '/HearUs',
+//     debug: true,
+//     allow_discovery: true
+// })
 
 const path = require('path')
 const multer = require('multer')
@@ -64,7 +64,7 @@ app.post('/upload', upload.single('userVideo'), async (req, res) => {
 
 
 
-app.use('/peerjs', peerServer)
+// app.use('/peerjs', peerServer)
 
 app.get('/videocall', (req, res)=>{
     res.sendFile(__dirname+'/public/asl_video_call.html');
