@@ -99,8 +99,8 @@ var peer_id;
 var currentPeer;
 //create peer connection with peer obj i.e. set up a server to connect the two peers on video call
 var peer=new Peer({
-    host: 'localhost',
-    port: 4000,
+    host: 'hear-us-org.herokuapp.com',
+    port: 443,
     secure: true,
     path: '/peerjs/HearUs'
   });
