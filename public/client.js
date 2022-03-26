@@ -54,7 +54,6 @@ const endCallButton = document.getElementById('endCall');
 const lVideo=document.getElementById('lVideo');
 const rVideo=document.getElementById('rVideo');
 const callButton=document.getElementById('call_button');
-const connectButton=document.getElementById('conn_button');
 const muteCameraButton=document.getElementById('muteCamera');
 const muteAudioButton=document.getElementById('muteAudio')
 const shareScreenButton=document.getElementById('shareScreen')
@@ -123,17 +122,6 @@ peer.on('connection', function(connection){
 peer.on('error', function(err){
     console.log("an error has occured "+err);
 })
-//connect with peer
-connectButton.addEventListener('click', function(){
-    peer_id=document.getElementById('connId').value;
-    if(peer_id){
-        conn=peer.connect(peer_id)
-    }
-    else{
-        alert('enter an id');
-        return false
-    }
-})
 
 //accept call
 peer.on('call', function(call){
@@ -162,6 +150,15 @@ peer.on('destroyed', ()=>{
 
 //initiate call
 callButton.addEventListener('click', function(){
+    peer_id=document.getElementById('connId').value;
+    if(peer_id){
+        conn=peer.connect(peer_id)
+    }
+    else{
+        alert('enter an id');
+        return false
+    }
+
     console.log("calling peer: "+peer_id);
     console.log(peer);
     var call=peer.call(peer_id, window.localstream);
