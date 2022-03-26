@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Template Mo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>HearUS</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+<!--
+
+TemplateMo 569 Edu Meeting
+
+https://templatemo.com/tm-569-edu-meeting
+
+-->
+  </head>
+
+<body>
+
+   
+
+  <!-- Sub Header -->
+  <!-- <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8">
+          <div class="left-content">
+            <p>This is an educational <em>HTML CSS</em> template by TemplateMo website.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <div class="right-icons">
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Logo Start ***** -->
+                      <a href="index.html" class="logo">
+                          Hear US
+                      </a>
+                      <!-- ***** Logo End ***** -->
+                      <!-- ***** Menu Start ***** -->
+                      <ul class="nav">
+                          <li><a href="index.html">Home</a></li>
+                          <li><a href="speech_to_asl.html" class="active">Speech to ASL</a></li>
+                          <li><a href="learn_asl.html">Learn ASL</a></li>
+                          <li><a href="asl_video_call.html">ASl Video call</a></li>
+                          <li><a href="portal.html">Job portal</a></li>
+                      </ul>        
+                      <a class='menu-trigger'>
+                          <span>Menu</span>
+                      </a>
+                      <!-- ***** Menu End ***** -->
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <section class="heading-page header-text" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h6>Get all details</h6>
+          <h2>Online Teaching and Learning Tools</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--speech to asl-->
+<div id="about" class="about-us section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- ASL to speech part. Some EJS magic here😱. Do not touch!!!-->
+            <% if (!videoPresent) { %>
+
+                <h1>Upload your favourite video</h1>
+                <form method="post" action="/upload" enctype="multipart/form-data">
+                    <input type="file" name="userVideo" />
+                    <input type="submit" />
+                </form>
+                <% } else { %>
+                    <div class="video-container justify-content-center">
+                        <div class="row justify-content-end mb-2">
+                            <div class="asl-btn"><a href="/asl">Upload another</a></div>
+                        </div>
+                        <video id="video_element" controls width="800px" muted>
+                            <source src="uploads/<%=videoName %>">
+                            <track id='track1' kind="captions" srclang="en" src='uploads/<%=subtitleName %>'
+                                label="English" default=''>
+                        </video>
+                        <div class="row justify-content-center">
+                            <div id="subtitles"></div>
+                        </div>
+                    </div>
+                    <% } %>
+         </div>
+    </div>
+</div>
+
+
+    <div class="footer">
+      <p>Copyright © Hear US. All Rights Reserved. 
+    </div>
+  </section>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/video.js"></script>
+    <script src="assets/js/slick-slider.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+          var
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+          if (isAnimate) {
+            $('body, html').animate({
+              scrollTop: reqSectionPos },
+            800);
+          } else {
+            $('body, html').scrollTop(reqSectionPos);
+          }
+
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+          e.preventDefault();
+          showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+          checkSection();
+        });
+    </script>
+        <script>
+            // Acc
+            $(document).on("click", ".naccs .menu div", function () {
+                var numberIndex = $(this).index();
+    
+                if (!$(this).is("active")) {
+                    $(".naccs .menu div").removeClass("active");
+                    $(".naccs ul li").removeClass("active");
+    
+                    $(this).addClass("active");
+                    $(".naccs ul").find("li:eq(" + numberIndex + ")").addClass("active");
+    
+                    var listItemHeight = $(".naccs ul")
+                        .find("li:eq(" + numberIndex + ")")
+                        .innerHeight();
+                    $(".naccs ul").height(listItemHeight + "px");
+                }
+            });
+    
+            // Convert the video subtitles to ASL
+            const videoElement = document.querySelector("#video_element");
+            if (videoElement) {
+                const textTracks = videoElement.textTracks;
+                var textTrack = textTracks[0];
+    
+                const isAlphaNumeric = (char) => char.match(/^[0-9a-z]+$/)
+    
+                const subtitlesDiv = document.getElementById('subtitles')
+                textTrack.oncuechange = function (e) {
+                    subtitlesDiv.innerHTML = ''
+    
+                    const cue = this.activeCues[0].text;
+                    if (cue) {
+                        let row = document.createElement('div')
+                        row.setAttribute('class', 'row')
+                        for (let i = 0; i < cue.length; i++) {
+                            const letter = cue[i].toLowerCase()
+                            if (isAlphaNumeric(letter)) {
+                                const sign = document.createElement('img')
+                                sign.setAttribute('src', `assets/images/ASL_letters/${cue[i].toLowerCase()}.jpg`)
+                                row.appendChild(sign)
+                            } else if (letter == ' ') {
+                                const sign = document.createElement('p')
+                                sign.setAttribute('class', 'spacer')
+                                row.appendChild(sign)
+                            } else if (letter == '\n') {
+                                document.subtitlesDiv.appendChild(row)
+                                row = document.createElement('div')
+                                row.setAttribute('class', 'row')
+                            }
+                        }
+                        subtitlesDiv.appendChild(row)
+                    }
+                }
+            }
+        </script>
+</body>
+
+
+  </body>
+
+</html>
+
