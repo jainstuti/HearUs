@@ -65,7 +65,7 @@ app.post('/upload', upload.single('userVideo'), async (req, res) => {
 app.use('/peerjs', peerServer)
 
 app.get('/videocall', (req, res)=>{
-    res.sendFile(__dirname+'/index.html');
+    res.sendFile(__dirname+'/public/asl_video_call.html');
 });
 
 app.use(express.static('public'));
