@@ -101,7 +101,7 @@ var currentPeer;
 var peer=new Peer({
     host: 'localhost',
     port: 4000,
-    secure: false,
+    secure: true,
     path: '/peerjs/HearUs'
   });
 
