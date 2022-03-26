@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "start:prod": "mkdir \"public/uploads\" && mkdir \"audio\" && node index.js"
+    "start:prod": "mkdir \"public/uploads\" && mkdir \"audio\" && node server.js"
   },
   "keywords": [],
   "author": "",
