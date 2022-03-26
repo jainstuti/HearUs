@@ -101,7 +101,7 @@ var currentPeer;
 var peer=new Peer({
     host: 'hear-us-org.herokuapp.com',
     port: 443,
-    secure: true,
+    //secure: true,
     path: '/peerjs/HearUs'
   });
 
