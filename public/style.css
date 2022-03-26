@@ -93,3 +93,13 @@ canvas{
     padding: 100px;
     border-radius: 20px;
 }
+
+.btn-style
+{
+    padding: 10px;
+    background: #a12c2f;
+    color: white;
+    border-radius: 32px;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}

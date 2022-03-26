@@ -112,14 +112,14 @@ https://templatemo.com/tm-569-edu-meeting
                         <% if (!videoPresent) { %>
 
                             <h1>Upload your favourite video</h1>
-                            <form method="post" action="/upload" enctype="multipart/form-data">
+                            <form method="post" action="/upload" enctype="multipart/form-data" style="margin-top: 25px;">
                                 <input type="file" name="userVideo" />
                                 <input type="submit" />
                             </form>
                             <% } else { %>
                                 <div class="video-container justify-content-center">
                                     <div class="row justify-content-end mb-2">
-                                        <div class="asl-btn"><a href="/asl">Upload another</a></div>
+                                        <div class="main-button-red" style="text-align: right"><a href="/asl">Upload another</a></div>
                                     </div>
                                     <video id="video_element" controls width="800px" muted>
                                         <source src="uploads/<%=videoName %>">
