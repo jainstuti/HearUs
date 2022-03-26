@@ -102,7 +102,8 @@ var peer=new Peer({
     host: 'hear-us-org.herokuapp.com',
     // port: "",
     // secure: true,
-    path: '/peerjs/HearUs'
+    path: '/peerjs/HearUs',
+    configuration: {'iceServers': [{'urls': 'stun:stun.l.google.com:19302'}]}
   });
 
 //display local id on DOM
