@@ -1,12 +1,18 @@
 const express=require("express");
 const app=express();
-const http=require('http').Server(app);
-const io=require('socket.io')(http);
-const PORT=process.env.PORT || 7000;
+const http=require('http');
+const { ExpressPeerServer } = require('peer')
 
-http.listen(PORT, ()=>{
-    console.log("listening on port "+PORT);
-});
+const PORT=process.env.PORT || 4000;
+
+
+const server = http.createServer(app)
+
+const peerServer = ExpressPeerServer(server, {
+    path: '/videocall'
+})
+
+app.use('/peerjs', peerServer)
 
 app.get('/', (req, res)=>{
     res.sendFile(__dirname+'/index.html');
@@ -14,6 +20,13 @@ app.get('/', (req, res)=>{
 
 app.use(express.static('public'));
 
+
+server.listen(PORT, ()=>{
+    console.log("listening on port "+PORT);
+});
+
+
+const io=require('socket.io')(server);
 io.on('connection', (socket)=>{
     console.log("client connected "+socket.id);
     socket.on('userMessage', (data)=>{
