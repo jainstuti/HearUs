@@ -9,7 +9,9 @@ const PORT=process.env.PORT || 4000;
 const server = http.createServer(app)
 
 const peerServer = ExpressPeerServer(server, {
-    path: '/HearUs'
+    path: '/HearUs',
+    debug: true,
+    allow_discovery: true
 })
 
 const path = require('path')
