@@ -66,6 +66,8 @@
         <div class="col">
           local
           <video width="400px" height="400px" id="lVideo" autoplay></video>
+          <canvas hidden id="canvas"></canvas>
+          <video autoplay hidden id="blurBg"></video>
         </div>
       </div>
       <!-- <div> -->
@@ -95,10 +97,64 @@
       <button id="endCall" class="btn btn-primary">
         <i class="fas fa-phone-slash"></i>
       </button>
+      <button id="muteCamera" class="btn btn-primary">
+        <i class="fas fa-video"></i>
+      </button>
+      <button id="muteAudio" class="btn btn-primary">
+        <i class="fas fa-microphone"></i>
+      </button>
+      <button id="shareScreen" class="btn btn-primary">share screen</button>
 
+      <button id="blur-btn" type="button" class="btn btn-primary" disabled>
+        Blur background
+      </button>
+      <button id="unblur-btn" type="button" class="btn btn-primary" hidden>
+        Unblur
+      </button>
+      <button id="start-subtitles-btn" type="button" class="btn btn-primary">
+        Generate ASL subtitles
+      </button>
+      <textarea id="subtitles-textarea" placeholder="generated subtitles will appear." rows="4"></textarea>
+      <div id="ASL-subtitles-display"></div>
+
+      <button id="eng-subtitles-btn" type="button" >Generate English Subtitles</button>
+      <div id="label-container"></div>
+      <!-- options for recording -->
+      <br />
+      <br />
+      <hr />
+      <h6>
+        Hit
+        <span id="instructions" 
+          >Get the stream for recording</span
+        >
+        button followed by
+        <span id="instructions"
+          >Start recording</span
+        >
+        to record the screen
+      </h6>
+      <button class="btn btn-primary" id="getScreenStream">
+        Get the stream for recording
+      </button>
+
+      <button class="btn btn-primary" id="recordScreen" value="start recording">
+        Start recording
+      </button>
+      <div>
+        <br />
+        <button class="btn btn-primary" id="play" disabled>Play</button>
+        <button class="btn btn-primary" id="download" disabled>Download</button>
+      </div>
+      <p>Preview</p>
+      <video id="recorded" playsinline></video>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <script src="/client.js"></script> 
     <!-- type="module" async defer></script> -->
   </body>

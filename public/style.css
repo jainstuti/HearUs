@@ -2,6 +2,16 @@
     color: rgb(114, 108, 108);
 }
 
+#text_area{
+    width: 70%;
+    margin: auto;
+}
+
+#recorded{
+    width: 450px;
+    height: 400px;
+}
+
 #right{
     text-align: right;
     background: hsl(120, 64%, 79%);
@@ -33,3 +43,13 @@ canvas{
     padding: 5px;
 }
 
+#subtitles-textarea{
+    margin-top: 10px;
+    width: 400px;
+}
+#ASL-subtitles-display{
+    margin-top: 10px;
+    border: 1px solid grey;
+    height: 100px;
+    overflow-y: auto;
+}

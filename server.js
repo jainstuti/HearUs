@@ -9,7 +9,7 @@ const PORT=process.env.PORT || 4000;
 const server = http.createServer(app)
 
 const peerServer = ExpressPeerServer(server, {
-    path: '/videocall'
+    path: '/HearUs'
 })
 
 const path = require('path')
