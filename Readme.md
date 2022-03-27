@@ -1,5 +1,5 @@
 # Introducing "Hear Us"
-### A multi-utility platform for the speech and hearing impaired regain their financial independence.
+### Empowering speech and hearing impaired to lead their career path.
 
 ## The Problem
 - Today India alone is home to 63 million people who are suffering either complete or partial deafness, and of these, at least 50 lakh are children. The deaf and speech disabled still remain invisible at institutions of higher education and some of them even fail to complete schooling. Even today, there are only about 700 schools in India that provide education of sign language, and the acceptance of sign language is very low.
